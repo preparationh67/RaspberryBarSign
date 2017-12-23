@@ -47,6 +47,7 @@ def setup():
     wpi.pinMode(pPWM, wpi.PWM_OUTPUT)
     pwmValue = 0
     wpi.pwmWrite(pPWM, pwmValue)
+    rotaryButtonSetup()
 
 
 def destroy():
@@ -54,6 +55,7 @@ def destroy():
 
 
 def loop():
+    print "Starting Program Loop"
     while True:
         rotaryScan()
 
@@ -124,7 +126,7 @@ def softOff():
         LastClearTime = datetime.datetime.now()
 
 
-def rotaryClear():
+def rotaryButtonSetup():
     wpi.wiringPiISR(pSW, wpi.INT_EDGE_FALLING, softOff)  # wait for falling
 
 

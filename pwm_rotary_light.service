@@ -1,0 +1,11 @@
+[Unit]
+Description=Light Control Via the Rotary Encoder Knob
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/pwm_rotary_light.py
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
